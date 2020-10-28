@@ -103,4 +103,15 @@
       max-height: 38px;
     }
   }
+  .main-header & {
+
+    display: none;
+    .sidebar-collapse:not(.sidebar-mini) &,
+    .sidebar-mini.sidebar-closed & {
+
+      display: block;
+
+    }
+
+  }
 }
