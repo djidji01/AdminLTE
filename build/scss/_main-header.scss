@@ -5,6 +5,9 @@
 .main-header {
   border-bottom: $main-header-bottom-border;
   z-index: $zindex-main-header;
+  padding-top: 0;
+  padding-bottom: 0;
+  min-height: $main-header-height;
 
   .nav-link {
     height: $nav-link-height;

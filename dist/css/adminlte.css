@@ -11587,6 +11587,9 @@ body.sidebar-collapse:not(.sidebar-mini-md):not(.sidebar-mini) .main-header::bef
 .main-header {
   border-bottom: 1px solid #dee2e6;
   z-index: 1034;
+  padding-top: 0;
+  padding-bottom: 0;
+  min-height: calc(3.5rem + 1px);
 }
 
 .main-header .nav-link {
@@ -11849,8 +11852,47 @@ body.sidebar-collapse:not(.sidebar-mini-md):not(.sidebar-mini) .main-header::bef
 }
 
 .sidebar-collapse:not(.sidebar-mini) .main-header .brand-link,
-.sidebar-mini.sidebar-closed .main-header .brand-link {
-  display: block;
+.sidebar-closed .main-header .brand-link,
+.sidebar-open .main-header .brand-link {
+  display: -ms-flexbox;
+  display: flex;
+  min-height: calc(3.5rem + 1px);
+  min-width: 250px;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.sidebar-closed .main-header .brand-link,
+.sidebar-open .main-header .brand-link {
+  position: absolute;
+  left: 50%;
+  margin-left: -125px;
+  z-index: 1035;
+}
+
+.sidebar-closed .main-sidebar .brand-link,
+.sidebar-open .main-sidebar .brand-link {
+  display: none;
+}
+
+.main-header[class*="navbar-dark"] .brand-link {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.main-header[class*="navbar-dark"] .brand-link:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 0.25rem;
+}
+
+.main-header[class*="navbar-light"] .brand-link {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.main-header[class*="navbar-light"] .brand-link:hover {
+  color: #000;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 0.25rem;
 }
 
 .main-sidebar {
@@ -13010,12 +13052,16 @@ body.sidebar-collapse:not(.sidebar-mini-md):not(.sidebar-mini) .main-header::bef
 }
 
 .layout-fixed .main-sidebar-custom .sidebar {
-  height: calc(100% - ((3.5rem + 4rem) + 1px));
+  height: calc(100% - ((3.5rem + calc(3.5rem + 1px)) + 1px));
 }
 
 .layout-fixed .main-sidebar-custom .sidebar-custom {
-  height: 4rem;
+  height: calc(3.5rem + 1px);
   padding: 0.85rem 0.5rem;
+}
+
+.layout-fixed.sidebar-open .main-sidebar-custom .sidebar {
+  height: calc(100% - (calc(3.5rem + 1px)));
 }
 
 .layout-fixed .main-sidebar-custom-lg .sidebar {
