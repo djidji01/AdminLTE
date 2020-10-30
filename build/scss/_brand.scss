@@ -140,6 +140,15 @@
 
 }
 
+.sidebar-closed,
+.sidebar-open {
+
+  .main-sidebar:not(.main-sidebar-custom) .sidebar{
+    height: 100vh !important;
+  }
+
+}
+
 .main-header {
 
   &[class*="navbar-dark"] {
