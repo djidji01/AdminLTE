@@ -108,7 +108,8 @@
     display: none;
     .sidebar-collapse:not(.sidebar-mini) &,
     .sidebar-closed &,
-    .sidebar-open & {
+    .sidebar-open &,
+    .layout-top-nav & {
 
       display: flex;
       min-height: $main-header-height;
@@ -131,20 +132,12 @@
   .main-sidebar & {
 
     .sidebar-closed &,
-    .sidebar-open & {
+    .sidebar-open &,
+    .layout-top-nav & {
 
       display: none;
 
     }
-  }
-
-}
-
-.sidebar-closed,
-.sidebar-open {
-
-  .main-sidebar:not(.main-sidebar-custom) .sidebar{
-    height: 100vh !important;
   }
 
 }
