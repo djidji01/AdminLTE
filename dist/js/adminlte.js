@@ -1180,19 +1180,30 @@
         offset = 0;
       }
 
-      var $diff = Math.abs(heights.controlSidebar - heights.sidebar);
-
-      if ($diff > heights.footer) {
-        $diff = 0;
-      }
-
       var $contentSelector = $__default['default'](SELECTOR_CONTENT);
 
       if (offset !== false) {
-        if (max === heights.controlSidebar || max === heights.sidebar) {
-          $contentSelector.css('min-height', max + offset - $diff);
+        if (max === heights.controlSidebar) {
+          $contentSelector.css('min-height', max + offset);
         } else if (max === heights.window) {
-          $contentSelector.css('min-height', max + offset + $diff - heights.header - heights.footer);
+          var diff = max - this._max({
+            sidebar: heights.sidebar,
+            controlSidebar: heights.controlSidebar
+          });
+
+          if (diff > heights.footer) {
+            diff = 0;
+          }
+
+          $contentSelector.css('min-height', max + offset + diff - heights.header - heights.footer);
+        } else if (max === heights.sidebar) {
+          var _diff = heights.sidebar - heights.controlSidebar;
+
+          if (_diff < heights.footer) {
+            $contentSelector.css('min-height', max + offset - _diff);
+          } else {
+            $contentSelector.css('min-height', max + offset - heights.footer);
+          }
         } else {
           $contentSelector.css('min-height', max + offset - heights.header);
         }

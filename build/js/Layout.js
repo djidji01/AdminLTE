@@ -77,19 +77,27 @@ class Layout {
       offset = 0
     }
 
-    let $diff = Math.abs(heights.controlSidebar - heights.sidebar)
-
-    if ($diff > heights.footer) {
-      $diff = 0
-    }
-
     const $contentSelector = $(SELECTOR_CONTENT)
 
     if (offset !== false) {
-      if (max === heights.controlSidebar || max === heights.sidebar) {
-        $contentSelector.css('min-height', (max + offset) - $diff)
+      if (max === heights.controlSidebar) {
+        $contentSelector.css('min-height', (max + offset))
       } else if (max === heights.window) {
-        $contentSelector.css('min-height', (max + offset + $diff) - heights.header - heights.footer)
+        let diff = max - this._max({ sidebar: heights.sidebar, controlSidebar: heights.controlSidebar })
+
+        if (diff > heights.footer) {
+          diff = 0
+        }
+
+        $contentSelector.css('min-height', (max + offset + diff) - heights.header - heights.footer)
+      } else if (max === heights.sidebar) {
+        const diff = heights.sidebar - heights.controlSidebar
+
+        if (diff < heights.footer) {
+          $contentSelector.css('min-height', (max + offset) - diff)
+        } else {
+          $contentSelector.css('min-height', (max + offset) - heights.footer)
+        }
       } else {
         $contentSelector.css('min-height', (max + offset) - heights.header)
       }
