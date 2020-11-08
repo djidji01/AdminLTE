@@ -114,26 +114,27 @@
       display: flex;
       min-height: $main-header-height;
       min-width: $sidebar-width;
+      justify-content: center;
       align-items: center;
 
     }
 
     .sidebar-closed &,
     .sidebar-open & {
-
-      position: absolute;
+      position: absolute !important;
       left: 50%;
       margin-left: $sidebar-width / -2;
       z-index: $zindex-main-header + 1;
-
     }
+
   }
 
   .main-sidebar & {
 
     .sidebar-closed &,
     .sidebar-open &,
-    .layout-top-nav & {
+    .layout-top-nav &,
+    .layout-navbar-fixed.sidebar-collapse:not(.sidebar-mini) & {
 
       display: none;
 
