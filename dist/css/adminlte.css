@@ -11633,6 +11633,11 @@ body.sidebar-collapse:not(.sidebar-mini-md):not(.sidebar-mini) .main-header::bef
   margin: 0;
 }
 
+.main-header .navbar-nav .dropdown-menu {
+  margin: 0;
+  top: calc(100% + (3.5rem - 2.5rem) / 2);
+}
+
 .main-header .navbar-nav[class*="-right"] .dropdown-menu {
   left: auto;
   margin-top: -3px;
