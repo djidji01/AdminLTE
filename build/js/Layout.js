@@ -159,6 +159,9 @@ class Layout {
       .on('collapsed.lte.treeview expanded.lte.treeview', () => {
         this.fixLayoutHeight()
       })
+      .hover(() => {
+        this.fixLayoutHeight()
+      })
 
     $(SELECTOR_PUSHMENU_BTN)
       .on('collapsed.lte.pushmenu shown.lte.pushmenu', () => {
@@ -174,6 +177,10 @@ class Layout {
       })
 
     $(window).resize(() => {
+      this.fixLayoutHeight()
+    })
+
+    $(document).ready(() => {
       this.fixLayoutHeight()
     })
 

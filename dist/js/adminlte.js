@@ -1264,6 +1264,8 @@
 
       $__default['default'](SELECTOR_SIDEBAR).on('collapsed.lte.treeview expanded.lte.treeview', function () {
         _this.fixLayoutHeight();
+      }).hover(function () {
+        _this.fixLayoutHeight();
       });
       $__default['default'](SELECTOR_PUSHMENU_BTN).on('collapsed.lte.pushmenu shown.lte.pushmenu', function () {
         _this.fixLayoutHeight();
@@ -1274,6 +1276,9 @@
         _this.fixLayoutHeight('control_sidebar');
       });
       $__default['default'](window).resize(function () {
+        _this.fixLayoutHeight();
+      });
+      $__default['default'](document).ready(function () {
         _this.fixLayoutHeight();
       });
       setTimeout(function () {
