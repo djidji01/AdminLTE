@@ -160,7 +160,9 @@ class Layout {
         this.fixLayoutHeight()
       })
       .hover(() => {
-        this.fixLayoutHeight()
+        if ($('body').hasClass('sidebar-collapse')) {
+          this.fixLayoutHeight()
+        }
       })
 
     $(SELECTOR_PUSHMENU_BTN)

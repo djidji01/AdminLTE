@@ -1265,7 +1265,9 @@
       $__default['default'](SELECTOR_SIDEBAR).on('collapsed.lte.treeview expanded.lte.treeview', function () {
         _this.fixLayoutHeight();
       }).hover(function () {
-        _this.fixLayoutHeight();
+        if ($__default['default']('body').hasClass('sidebar-collapse')) {
+          _this.fixLayoutHeight();
+        }
       });
       $__default['default'](SELECTOR_PUSHMENU_BTN).on('collapsed.lte.pushmenu shown.lte.pushmenu', function () {
         _this.fixLayoutHeight();
